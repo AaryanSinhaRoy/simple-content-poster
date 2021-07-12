@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Admin of LSN</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@700&display=swap" rel="stylesheet"> 
+
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+<body style="background-color:#4a536b;">
+
+	<center>
+		<h1 style="font-family: 'Noto Sans TC', sans-serif; background-color: #aed6dc;">Simple Content Poster (Administrator)</h1>
+
+
+
+<div class="container" style="border: 2px soild #aed6dc;">
+	<form action="/newpost" method="POST" autocomplete="off">
+		<input type="text" name="post_headline" placeholder="Enter Headline">
+		<br>
+		<textarea name="post_content"></textarea>
+		<br>
+		<br>
+		<button type="submit" class="btn btn-primary">Post</button>
+	</form>
+	</center>
+</div>
+<br>
+<a href="/logout"><input type="button" value="Logout" class="btn btn-primary"></a>
+
+<br>
+
+<br>
+
+	{% for x in results %}
+	<div class="container" style="border: 2px solid #aed6d; background-color: #ff9a8d;">
+		<left><a href="/deletepost/{{x[2]}}"><button class="btn btn-primary">Delete this post</button></a></left>
+		<h3 class="text-center">{{x[0]}}</h3>
+		<br>
+		<h4 class="text-center">{{x[1]}}</h4>
+	</div>
+	<hr>
+	{% endfor %}
+
+
+
+
+</body>
+</html>
+
